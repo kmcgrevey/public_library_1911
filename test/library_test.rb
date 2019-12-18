@@ -27,6 +27,13 @@ class AuthorTest < Minitest::Test
     assert_equal [@charlotte_bronte, @harper_lee], @dpl.authors
   end
 
+  def test_it_can_accumulate_books
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+    assert_equal [@professor, @villette, @mockingbird], @dpl.books
+    # @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+    # assert_equal [@professor, @villette, @mockingbird, @jane_eyre ], @dpl.books
+  end
 
 end
 
@@ -36,16 +43,7 @@ end
 # #=> #<Book:0x00007fbeeb3beca8...>
 #
 
-#
 
-#
-# pry(main)>
-# pry(main)> dpl.add_author(charlotte_bronte)
-#
-# pry(main)> dpl.add_author(harper_lee)
-#
-# pry(main)> dpl.authors
-# => [#<Author:0x00007fbeea2d78b8...>, #<Author:0x00007fbeea112730...>]
 #
 # pry(main)> dpl.books
 # => [#<Book:0x00007fbeeb3beca8...>, #<Book:0x00007fbeea8efd90...>, #<Book:0x00007fbeea24fbe8...>, #<Book:0x00007fbeeb1089f0...>]
